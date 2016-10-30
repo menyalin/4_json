@@ -1,19 +1,10 @@
-import json
-from pprint import pprint
-
-
-def load_data(filepath):
-    my_file = open(filepath, mode="r", encoding='utf-8')
-    data = json.load(my_file)
-    my_file.close()
-    return data
-
-
-def pretty_print_json(data):
-    pprint(data)
+from func import *
 
 
 if __name__ == '__main__':
-
-    data = load_data('Магазины «Алкогольные напитки».json')
+    print("Загрузить JSON с портала открытых данных правительства Москвы: - 1")
+    print("Самостоятельно выбрать файл на жестком диске: - 2")
+    answer = int(input())
+    data = load_data(answer)
+    input('Нажмите "Enter" для вывода json в консоль')
     pretty_print_json(data)
