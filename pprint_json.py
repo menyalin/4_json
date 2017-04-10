@@ -1,10 +1,20 @@
-from func import *
+import json
+import os
+from pprint import pprint
+
+
+def load_json_data(filepath):
+    if os.path.exists(file_path):
+        with open(filepath, 'r', encoding='utf-8') as file_handler:
+            return json.load(file_handler)
+    else:
+        return None
 
 
 if __name__ == '__main__':
-    print("Загрузить JSON с портала открытых данных правительства Москвы: - 1")
-    print("Самостоятельно выбрать файл на жестком диске: - 2")
-    answer = int(input())
-    data = load_data(answer)
-    input('Нажмите "Enter" для вывода json в консоль')
-    pretty_print_json(data)
+    file_path = input("Select data file:")
+    json_data = load_json_data(file_path)
+    if not json_data:
+        print('File not exists!')
+        exit()
+    pprint(json_data)
