@@ -1,14 +1,11 @@
 import json
 import os
-from pprint import pprint
 
 
 def load_json_data(filepath):
     if os.path.exists(file_path):
         with open(filepath, 'r', encoding='utf-8') as file_handler:
             return json.load(file_handler)
-    else:
-        return None
 
 
 if __name__ == '__main__':
@@ -17,4 +14,4 @@ if __name__ == '__main__':
     if not json_data:
         print('File not exists!')
         exit()
-    pprint(json_data)
+    print(json.dumps(json_data, indent=4, ensure_ascii=False, sort_keys=True))
